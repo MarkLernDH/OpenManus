@@ -1,0 +1,33 @@
+{
+  "mcpServers": {
+    "n8n_workflows": {
+      "type": "sse",
+      "url": "http://localhost:5678/webhook/mcp",
+      "description": "n8n workflow automation server for business processes"
+    },
+    "hubspot_integration": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@hubspot/mcp-server"],
+      "description": "HubSpot CRM integration for lead management"
+    },
+    "zoominfo_connector": {
+      "type": "stdio", 
+      "command": "node",
+      "args": ["./mcp-servers/zoominfo-server.js"],
+      "description": "ZoomInfo API connector for prospect research"
+    },
+    "perplexity_search": {
+      "type": "stdio",
+      "command": "node", 
+      "args": ["./mcp-servers/perplexity-server.js"],
+      "description": "Perplexity AI search for enhanced research capabilities"
+    },
+    "supabase_db": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@supabase/mcp-server"],
+      "description": "Supabase database operations for data storage"
+    }
+  }
+}

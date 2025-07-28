@@ -1,0 +1,43 @@
+# Focused Business Intelligence Agent Configuration
+# Specialized for web research, lead generation, and CRM integration
+
+# Global LLM configuration
+[llm]
+model = "claude-3-7-sonnet-20250219"       # The LLM model to use
+base_url = "https://api.anthropic.com/v1/" # API endpoint URL
+api_key = "YOUR_API_KEY"                   # Your API key
+max_tokens = 8192                          # Maximum number of tokens in the response
+temperature = 0.0                          # Controls randomness for focused tasks
+
+# Optional configuration for specific LLM models
+[llm.vision]
+model = "claude-3-7-sonnet-20250219"       # The vision model to use
+base_url = "https://api.anthropic.com/v1/" # API endpoint URL for vision model
+api_key = "YOUR_API_KEY"                   # Your API key for vision model
+max_tokens = 8192                          # Maximum number of tokens in the response
+temperature = 0.0                          # Controls randomness for vision model
+
+# Browser configuration for web scraping
+[browser]
+headless = true                            # Run browser in headless mode for automation
+disable_security = true                    # Disable browser security features
+extra_chromium_args = ["--no-sandbox", "--disable-dev-shm-usage"]
+max_content_length = 5000                  # Maximum length for content retrieval
+
+# Search configuration optimized for business intelligence
+[search]
+engine = "Google"                          # Primary search engine
+fallback_engines = ["DuckDuckGo", "Bing"] # Fallback engines
+retry_delay = 30                           # Reduced delay for faster operations
+max_retries = 2                            # Fewer retries for efficiency
+lang = "en"                                # English language
+country = "us"                             # US market focus
+
+# MCP (Model Context Protocol) configuration for n8n integrations
+[mcp]
+server_reference = "app.mcp.server"       # Default server module reference
+
+# Focused agent configuration
+[runflow]
+use_data_analysis_agent = false           # Disable data analysis for focused tasks
+use_business_intelligence_agent = true    # Enable BI-focused agent
